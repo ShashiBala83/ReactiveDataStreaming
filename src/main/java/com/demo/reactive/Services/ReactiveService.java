@@ -14,8 +14,8 @@ public class ReactiveService {
     @Autowired
     ElasticSearchService elasticSearchService;
 
-    public void fluxTestWithSubscribe() {
-        Flux<List<Map<String, Object>>> fluxString = Flux.just(elasticSearchService.findAll()).log();
+    public void fluxTestWithSubscribe(String index) {
+        Flux<List<Map<String, Object>>> fluxString = Flux.just(elasticSearchService.findAll(index)).log();
 //        fluxString.subscribe(System.out::println, (error) -> System.err.println(error), () -> System.out.println("Complete"));
          fluxString.subscribe();
 

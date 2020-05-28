@@ -27,6 +27,7 @@ public class ElasticSearchConfig {
         return new RestHighLevelClient(
                 RestClient
                         .builder(new HttpHost("localhost", 9200))
+//                        .builder(new HttpHost("localhost", 9200))
                         .setRequestConfigCallback(config -> config
                                 .setConnectTimeout(5_000)
                                 .setConnectionRequestTimeout(5_000)

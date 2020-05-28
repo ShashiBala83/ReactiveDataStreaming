@@ -17,8 +17,8 @@ public class ElasticSearchController {
     private ElasticSearchService elasticSearchService;
 
     @RequestMapping(value = "/search", method = RequestMethod.GET, produces = "application/json")
-    private List<Map<String, Object>> getAllData() {
-        return elasticSearchService.findAll();
+    private List<Map<String, Object>> getAllData(@RequestParam(required = true) String index) {
+        return elasticSearchService.findAll(index);
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = "application/json")

@@ -24,9 +24,9 @@ public class ElasticSearchService {
     @Autowired
     private ElasticSearchConfig elasticSearchConfig;
 
-    public List<Map<String, Object>> findAll() {
+    public List<Map<String, Object>> findAll(String index) {
         List<Map<String, Object>> result = new ArrayList<>();
-        SearchRequest searchRequest = new SearchRequest("sqloperations");
+        SearchRequest searchRequest = new SearchRequest(index);
 //        RestHighLevelClient client = elasticSearchConfig.getClient();
         RestHighLevelClient client = elasticSearchConfig.getRestClient();
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
